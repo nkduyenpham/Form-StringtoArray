@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Link Array Form</title>
-    <style>
-      label, input, button {
-        display: block;
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <form>
-      <label for="links-input">Enter links:</label>
-      <input type="text" id="links-input" name="links-input">
-      <button type="submit">Submit</button>
-    </form>
-    <p id="output"></p>
-    <script>
-      // Get references to DOM elements
-      const form = document.querySelector('form');
-      const linksInput = document.getElementById('links-input');
-      const outputElement = document.getElementById('output');
+<head>
+  <meta charset="utf-8">
+  <title>Link Array Form</title>
+  <style>
+form {
+margin: 0 auto;
+max-width: 500px;
+text-align: center;
+}
 
-      // Define the function that will handle form submissions
-      function handleSubmit(event) {
-        // Prevent the default form submission behavior
-        event.preventDefault();
+label, input, button {
+display: block;
+margin-bottom: 10px;
+font-size: 30px;
+}
 
-        // Get the input value and split it into an array of individual links
-        const inputString = linksInput.value;
-        const linksArray = inputString.split(' ');
+  </style>
+</head>
+<body>
+  <form>
+    <label for="links-input">Enter links:</label>
+    <input type="text" id="links-input" name="links-input">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="output"></p>
+  <script>
+    // Get references to DOM elements
+    const form = document.querySelector('form');
+    const linksInput = document.getElementById('links-input');
+    const outputElement = document.getElementById('output');
 
-        // Output the array as a string to the page
-        outputElement.textContent = `Links array: [${linksArray.join(', ')}]`;
-      }
+    // Define the function that will handle form submissions
+    function handleSubmit(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
 
-      // Attach the function to the form's submit event
-      form.addEventListener('submit', handleSubmit);
-    </script>
-  </body>
+      // Get the input value and split it into an array of individual links
+      const inputString = linksInput.value;
+      const linksArray = inputString.split(' ');
+
+      // Output the array as a string to the page
+      outputElement.textContent = `Links array: [${linksArray.join(', ')}]`;
+    }
+
+    // Attach the function to the form's submit event
+    form.addEventListener('submit', handleSubmit);
+  </script>
+</body>
 </html>
